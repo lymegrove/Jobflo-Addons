@@ -1,0 +1,11 @@
+{
+  "id": "com.jobflo.addon.jobs-by-company",
+  "displayName": "Jobs by Company",
+  "description": "Breaks down your applications by company, top 8 plus Other.",
+  "category": "analytics",
+  "apiVersion": 1,
+  "author": "jsrothwell",
+  "version": "1.0.0",
+  "minAppVersion": "2.4.0",
+  "source": "var metadata = {\n  id: \"com.jobflo.addon.jobs-by-company\",\n  displayName: \"Jobs by Company\",\n  description: \"Breaks down your applications by company, top 8 plus Other.\",\n  category: \"analytics\",\n  apiVersion: 1,\n};\n\nfunction renderWidget() {\n  var labels = JobFlo.getJobCountByCompany();\n  var counts = JobFlo.getJobCountByCompanyCounts();\n\n  if (labels.length === 0) {\n    return {\n      apiVersion: 1,\n      root: {\n        type: \"vstack\",\n        spacing: 8,\n        children: [\n          { type: \"text\", text: \"Jobs by Company\", emphasized: true },\n          { type: \"text\", text: \"No applications yet\" },\n        ],\n      },\n    };\n  }\n\n  var max = 0;\n  for (var i = 0; i < counts.length; i++) {\n    if (counts[i] > max) max = counts[i];\n  }\n\n  var rows = [];\n  for (var j = 0; j < labels.length; j++) {\n    rows.push({\n      type: \"hstack\",\n      spacing: 8,\n      children: [\n        { type: \"text\", text: labels[j] },\n        { type: \"progressBar\", value: max > 0 ? counts[j] / max : 0, tint: \"accent\" },\n        { type: \"text\", text: String(counts[j]), emphasized: true },\n      ],\n    });\n  }\n\n  return {\n    apiVersion: 1,\n    root: {\n      type: \"vstack\",\n      spacing: 8,\n      children: [{ type: \"text\", text: \"Jobs by Company\", emphasized: true }].concat(rows),\n    },\n  };\n}\n"
+}
