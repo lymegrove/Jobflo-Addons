@@ -1,6 +1,6 @@
 # Awesome Jobflo Addons
 
-A curated, community-maintained registry of addons for [Jobflo](https://github.com/jsrothwell) — local-first job data ingestion and parsing. Each addon plugs into Jobflo through the `@jobflo/addon-sdk` contract, either as a **parser addon** that ingests and normalizes job data from a specific source, or as a **chart addon** that turns already-parsed job data into a visualization for the analytics section.
+A curated, community-maintained registry of addons for [Jobflo](https://apps.apple.com/us/app/jobflo-private-job-tracker/id6759933192) — local-first job data ingestion and parsing. Each addon plugs into Jobflo through the `@jobflo/addon-sdk` contract, either as a **parser addon** that ingests and normalizes job data from a specific source, or as a **chart addon** that turns already-parsed job data into a visualization for the analytics section.
 
 Browse the registry as a web page at the [GitHub Pages showcase](https://lymegrove.github.io/Jobflo-Addons/).
 
